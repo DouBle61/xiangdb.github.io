@@ -233,4 +233,245 @@ function renderCharityDetail(workId) {
 
   var html = pageHeader("renderCategoryPage('charity')", work.title, work.date);
   html += '<div class="flex-1 overflow-y-auto custom-scroll bg-gray-50 rounded-2xl p-5">';
-  html += (work.
+    html += (work.content || '') + imagesHtml;
+  html += '</div>';
+
+  renderPage(html);
+}
+
+
+// =============================================
+// 生活页面（朋友圈风格：一段文字 + 六宫格 + 换一换）
+// =============================================
+function renderLifePage() {
+  currentPage = 'life';
+  currentSubPage = null;
+  updateProfile('life');
+
+  var set = SITE_DATA.lifeSets[currentLifeSetIndex];
+
+  var html = '';
+  // 头部：返回 + 标题 + 换一换
+  html += '<div class="flex items-center justify-between mb-4 flex-shrink-0">';
+  html += '<div class="flex items-center gap-3">';
+  html += backBtn("renderHome()");
+  html += '<h2 class="text-lg lg:text-xl font-bold text-gray-800 tracking-tight">DouBle 的生活</h2>';
+  html += '</div>';
+  // 换一换按钮
+  html += '<button onclick="shuffleLife()" class="carousel-btn flex items-center gap-1.5 px-3 py-2 rounded-2xl bg-gray-50 text-xs text-gray-500 font-medium" style="box-shadow: 0 1px 8px rgba(0,0,0,0.04);">';
+  html += '<svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>';
+  html += '换一换</button>';
+  html += '</div>';
+
+  // 内容区
+  html += '<div class="flex-1 flex flex-col justify-center">';
+
+  // 一段描述文字
+  html += '<div id="lifeText" class="mb-4 flex-shrink-0">';
+  html += '<p class="text-sm text-gray-500 leading-relaxed">' + set.text + '</p>';
+  html += '</div>';
+
+  // 六宫格照片墙（3×2）
+  html += '<div id="lifeGrid" class="grid grid-cols-3 gap-2.5 lg:gap-3">';
+  html += set.photos.map(function(photo, i) {
+    return '<div class="fade-in grid-card-hover rounded-2xl overflow-hidden aspect-square" ' +
+      'style="box-shadow: 0 3px 14px rgba(0,0,0,0.05); animation-delay: ' + (i * 0.07) + 's; opacity: 0;">' +
+      protectedImg(photo, '生活照', 'w-full h-full') +
+      '</div>';
+  }).join('');
+  html += '</div>';
+
+  html += '</div>'; // flex-1 end
+
+  renderPage(html);
+}
+
+
+/** 换一换：切换数据 + 淡入淡出动画 */
+function shuffleLife() {
+  var newIndex;
+  do {
+    newIndex = Math.floor(Math.random() * SITE_DATA.lifeSets.length);
+  } while (newIndex === currentLifeSetIndex && SITE_DATA.lifeSets.length > 1);
+  currentLifeSetIndex = newIndex;
+
+  var set = SITE_DATA.lifeSets[currentLifeSetIndex];
+  var textEl = document.getElementById('lifeText');
+  var gridEl = document.getElementById('lifeGrid');
+  if (!textEl || !gridEl) return;
+
+  // 淡出
+  textEl.style.transition = 'all 0.25s ease';
+  gridEl.style.transition = 'all 0.25s ease';
+  textEl.style.opacity = '0';
+  textEl.style.transform = 'translateY(-6px)';
+  gridEl.style.opacity = '0';
+  gridEl.style.transform = 'scale(0.97)';
+
+  setTimeout(function() {
+    // 替换文字
+    textEl.innerHTML = '<p class="text-sm text-gray-500 leading-relaxed">' + set.text + '</p>';
+
+    // 替换照片
+    gridEl.innerHTML = set.photos.map(function(photo, i) {
+      return '<div class="fade-in grid-card-hover rounded-2xl overflow-hidden aspect-square" ' +
+        'style="box-shadow: 0 3px 14px rgba(0,0,0,0.05); animation-delay: ' + (i * 0.07) + 's; opacity: 0;">' +
+        protectedImg(photo, '生活照', 'w-full h-full') +
+        '</div>';
+    }).join('');
+
+    // 淡入
+    textEl.style.opacity = '1';
+    textEl.style.transform = 'translateY(0)';
+    gridEl.style.opacity = '1';
+    gridEl.style.transform = 'scale(1)';
+  }, 260);
+}
+
+
+// =============================================
+// 辅助：三级页面更新名片
+// =============================================
+function updateDetailProfile(work) {
+  var avatar = document.getElementById('profileAvatar');
+  var name   = document.getElementById('profileName');
+  var bio    = document.getElementById('profileBio');
+  var social = document.getElementById('socialIcons');
+  var subBio = document.getElementById('profileSubBio');
+
+  avatar.src = work.cover;
+  name.textContent = work.title;
+  bio.innerHTML = work.date;
+  social.classList.add('hidden');
+  subBio.classList.remove('hidden');
+  subBio.innerHTML = '点击左上角返回查看更多作品';
+}
+
+
+// =============================================
+// 辅助：轮播构建器（设计用 —— 无 caption）
+// =============================================
+function buildCarousel(images, title) {
+  var html = '<div class="relative rounded-3xl overflow-hidden bg-gray-100 aspect-[16/10] flex-shrink-0" ' +
+    'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);" id="carouselMain">';
+
+  images.forEach(function(img, i) {
+    html += '<div class="carousel-slide absolute inset-0 transition-opacity duration-500 ' +
+      (i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none') + '" data-index="' + i + '">' +
+      protectedImg(img, title + ' ' + (i + 1), 'w-full h-full') + '</div>';
+  });
+
+  // 左右箭头
+  html += carouselArrows(images.length);
+  html += '</div>';
+  return html;
+}
+
+function buildThumbStrip(images) {
+  var html = '<div class="flex items-center justify-center gap-1.5 mt-3 overflow-x-auto py-1 flex-shrink-0">';
+  images.forEach(function(img, i) {
+    html += '<div class="thumb-item flex-shrink-0 w-11 h-11 rounded-lg overflow-hidden cursor-pointer ' +
+      (i === 0 ? 'active' : '') + '" onclick="carouselGoTo(' + i + ', ' + images.length + ')">' +
+      protectedImg(img, '', 'w-full h-full') + '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+
+// =============================================
+// 辅助：轮播构建器（编导活动用 —— 带 caption）
+// =============================================
+function buildCarouselCaptioned(images, title) {
+  var html = '<div class="relative rounded-3xl overflow-hidden bg-gray-100 aspect-[16/10] flex-shrink-0" ' +
+    'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);" id="carouselMain">';
+
+  images.forEach(function(img, i) {
+    html += '<div class="carousel-slide absolute inset-0 transition-opacity duration-500 ' +
+      (i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none') + '" data-index="' + i + '">' +
+      protectedImg(img.src, img.caption, 'w-full h-full') +
+      '<div class="absolute bottom-0 left-0 right-0 p-3 z-10" style="background:linear-gradient(transparent,rgba(0,0,0,0.5));">' +
+      '<p class="text-white text-xs">' + (img.caption || '') + '</p></div></div>';
+  });
+
+  html += carouselArrows(images.length);
+  html += '</div>';
+  return html;
+}
+
+function buildThumbStripCaptioned(images) {
+  var html = '<div class="flex items-center justify-center gap-1.5 mt-3 overflow-x-auto py-1 flex-shrink-0">';
+  images.forEach(function(img, i) {
+    html += '<div class="thumb-item flex-shrink-0 w-11 h-11 rounded-lg overflow-hidden cursor-pointer ' +
+      (i === 0 ? 'active' : '') + '" onclick="carouselGoTo(' + i + ', ' + images.length + ')">' +
+      protectedImg(img.src, '', 'w-full h-full') + '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+
+// =============================================
+// 辅助：轮播箭头
+// =============================================
+function carouselArrows(total) {
+  return '<button onclick="carouselNav(-1, ' + total + ')" ' +
+    'class="carousel-btn absolute left-2 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/80 backdrop-blur flex items-center justify-center" ' +
+    'style="box-shadow: 0 2px 10px rgba(0,0,0,0.08);">' +
+    '<svg class="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">' +
+    '<path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg></button>' +
+    '<button onclick="carouselNav(1, ' + total + ')" ' +
+    'class="carousel-btn absolute right-2 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/80 backdrop-blur flex items-center justify-center" ' +
+    'style="box-shadow: 0 2px 10px rgba(0,0,0,0.08);">' +
+    '<svg class="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">' +
+    '<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg></button>';
+}
+
+
+// =============================================
+// 轮播控制
+// =============================================
+function carouselNav(dir, total) {
+  carouselIndex = (carouselIndex + dir + total) % total;
+  updateCarousel();
+}
+
+function carouselGoTo(idx, total) {
+  carouselIndex = idx;
+  updateCarousel();
+}
+
+function updateCarousel() {
+  var slides = document.querySelectorAll('.carousel-slide');
+  var thumbs = document.querySelectorAll('.thumb-item');
+  slides.forEach(function(s, i) {
+    s.classList.toggle('opacity-100', i === carouselIndex);
+    s.classList.toggle('opacity-0', i !== carouselIndex);
+    s.classList.toggle('pointer-events-none', i !== carouselIndex);
+  });
+  thumbs.forEach(function(t, i) {
+    t.classList.toggle('active', i === carouselIndex);
+  });
+}
+
+
+// =============================================
+// 页面导航路由
+// =============================================
+function navigateTo(page) {
+  if (page === 'life') {
+    renderLifePage();
+  } else {
+    renderCategoryPage(page);
+  }
+}
+
+function navigateToDetail(category, workId) {
+  carouselIndex = 0;
+  switch (category) {
+    case 'design':  renderDesignDetail(workId);  break;
+    case 'direct':  renderDirectDetail(workId);  break;
+    case 'scholar': renderScholarDetail(workId); break;
+    case 'charity': renderCharityDetail(workId); break;
+  }
+}
