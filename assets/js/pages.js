@@ -19,33 +19,33 @@ function renderHome() {
   updateProfile(null);
 
   var cards = SITE_DATA.homeCards;
-  var html =
-    '<div class="flex-1 flex flex-col h-full justify-center">' +
-      '<div class="relative w-full h-full flex flex-col justify-center">' +
-        '<div class="grid grid-cols-2 grid-rows-2 gap-4 h-full">' +
-          cards.map(function(c, i) {
-            return (
-              '<div class="grid-card-hover rounded-3xl overflow-hidden relative h-full w-full"' +
-              'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);"' +
-              'onclick="navigateTo(\'' + c.page + '\')">' +
-              protectedImg(c.image, c.title, 'h-full w-full') +
-              '<div class="absolute bottom-0 left-0 right-0 p-3 lg:p-4 z-10" ' +
-              'style="background: linear-gradient(transparent, rgba(0,0,0,0.45));">' +
-              '<span class="text-white font-bold text-xs lg:text-sm tracking-wide">' + c.title + '</span>' +
-              '</div></div>'
-            );
-          }).join('') +
-        '</div>' +
-        // 中央大圆（纯图片，无文字）
-        '<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">' +
-          '<div class="circle-card rounded-full overflow-hidden w-28 h-28 lg:w-36 lg:h-36 border-4 border-white relative" ' +
-          'style="box-shadow: 0 12px 40px rgba(0,0,0,0.15);" ' +
-          'onclick="navigateTo(\'life\')">' +
-          protectedImg(SITE_DATA.homeLifeCircle, '我的生活', 'w-full h-full absolute inset-0') +
-          '</div>' +
-        '</div>' +
-      '</div>' +
-    '</div>';
+  var html = pageHeader('', 'DouBle');
+
+  // 主区和二级完全一样的方式
+  html += '<div class="flex-1 flex flex-col justify-center">';
+  html += '<div class="grid grid-cols-2 grid-rows-2 gap-4 h-full">';
+  cards.forEach(function(c, i) {
+    // 主卡片内容
+    html += (
+      '<div class="grid-card-hover rounded-3xl overflow-hidden relative h-full w-full"' +
+      'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);" ' +
+      'onclick="navigateTo(\'' + c.page + '\')">' +
+      protectedImg(c.image, c.title, 'h-full w-full') +
+      '<div class="absolute bottom-0 left-0 right-0 p-3 lg:p-4 z-10" ' +
+      'style="background: linear-gradient(transparent, rgba(0,0,0,0.45));">' +
+      '<span class="text-white font-bold text-xs lg:text-sm tracking-wide">' + c.title + '</span>' +
+      '</div></div>'
+    );
+  });
+  html += '</div>';
+
+  // 在网格正中央插入大圆形生活卡片
+  html += '<div class="flex items-center justify-center mt-8">';
+  html += '<div class="circle-card rounded-full overflow-hidden w-28 h-28 lg:w-36 lg:h-36 border-4 border-white" style="box-shadow:0 12px 40px rgba(0,0,0,0.15);" onclick="navigateTo(\'life\')">';
+  html += protectedImg(SITE_DATA.homeLifeCircle, '我的生活', 'w-full h-full');
+  html += '</div></div>';
+
+  html += '</div>';
 
   renderPage(html);
 }
