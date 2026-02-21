@@ -25,7 +25,7 @@ function renderHome() {
         // 四宫格
         '<div class="grid grid-cols-2 gap-3 lg:gap-4">' +
           cards.map(function(c) {
-            return '<div class="grid-card-hover rounded-3xl overflow-hidden aspect-square relative" ' +
+            return '<div class="grid-card-hover rounded-3xl overflow-hidden aspect-[4/3] relative" ' +
               'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);" ' +
               'onclick="navigateTo(\'' + c.page + '\')">' +
               protectedImg(c.image, c.title, 'w-full h-full absolute inset-0') +
