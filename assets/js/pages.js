@@ -20,22 +20,25 @@ function renderHome() {
 
   var cards = SITE_DATA.homeCards;
   var html =
-    '<div class="flex-1 flex flex-col justify-center h-full">' +
+    '<div class="flex-1 flex flex-col h-full justify-center">' +
       '<div class="relative w-full h-full flex flex-col justify-center">' +
-        '<div class="grid grid-cols-2 gap-3 lg:gap-4 h-full">' +
-          cards.map(function(c) {
-            return '<div class="grid-card-hover rounded-3xl overflow-hidden aspect-[16/10] relative h-full"' +
-              'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);" ' +
+        '<div class="grid grid-cols-2 grid-rows-2 gap-4 h-full">' +
+          cards.map(function(c, i) {
+            return (
+              '<div class="grid-card-hover rounded-3xl overflow-hidden relative h-full w-full"' +
+              'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);"' +
               'onclick="navigateTo(\'' + c.page + '\')">' +
-              protectedImg(c.image, c.title, 'w-full h-full absolute inset-0') +
+              protectedImg(c.image, c.title, 'h-full w-full') +
               '<div class="absolute bottom-0 left-0 right-0 p-3 lg:p-4 z-10" ' +
               'style="background: linear-gradient(transparent, rgba(0,0,0,0.45));">' +
               '<span class="text-white font-bold text-xs lg:text-sm tracking-wide">' + c.title + '</span>' +
-              '</div></div>';
+              '</div></div>'
+            );
           }).join('') +
         '</div>' +
+        // 中央大圆（纯图片，无文字）
         '<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">' +
-          '<div class="circle-card rounded-full overflow-hidden w-24 h-24 lg:w-32 lg:h-32 border-4 border-white relative" ' +
+          '<div class="circle-card rounded-full overflow-hidden w-28 h-28 lg:w-36 lg:h-36 border-4 border-white relative" ' +
           'style="box-shadow: 0 12px 40px rgba(0,0,0,0.15);" ' +
           'onclick="navigateTo(\'life\')">' +
           protectedImg(SITE_DATA.homeLifeCircle, '我的生活', 'w-full h-full absolute inset-0') +
@@ -46,7 +49,6 @@ function renderHome() {
 
   renderPage(html);
 }
-
 
 // =============================================
 // 二级页面（作品列表 + 分页）
