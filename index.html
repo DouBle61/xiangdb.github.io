@@ -955,4 +955,433 @@
 
       currentSubPage = workId;
 
-      profileAvatar.src = work.cover
+            profileAvatar.src = work.cover;
+      profileName.textContent = work.title;
+      profileBio.innerHTML = work.date;
+
+      let html = '';
+
+      if (work.type === 'video') {
+        // ===== 视频/音频类作品 =====
+        const isAudio = work.videoSrc && work.videoSrc.endsWith('.mp3');
+        html = `
+          <div class="w-full" style="max-width: 800px; margin: 0 auto;">
+            <!-- 返回 -->
+            <div class="flex items-center gap-3 mb-6">
+              <button onclick="renderCategoryPage('direct')"
+                      class="carousel-btn w-10 h-10 rounded-2xl bg-white flex items-center justify-center"
+                      style="box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <div>
+                <h2 class="text-xl font-bold text-gray-800">${work.title}</h2>
+                <p class="text-sm text-gray-400">${work.date}</p>
+              </div>
+            </div>
+
+            <!-- 播放器 -->
+            ${isAudio ? `
+              <!-- 音频：封面图 + 音频控件 -->
+              <div class="rounded-3xl overflow-hidden bg-gray-100 aspect-[16/10] relative mb-4"
+                   style="box-shadow: 0 8px 32px rgba(0,0,0,0.08);">
+                ${protectedImg(work.cover, work.title, 'w-full h-full absolute inset-0')}
+                <div class="absolute inset-0 flex items-center justify-center z-10"
+                     style="background: rgba(0,0,0,0.25);">
+                  <div class="w-16 h-16 rounded-full bg-white/90 backdrop-blur flex items-center justify-center"
+                       style="box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+                    <svg class="w-7 h-7 text-gray-700 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <audio controls class="w-full rounded-2xl" style="outline: none;">
+                <source src="${work.videoSrc}" type="audio/mpeg">
+                你的浏览器不支持音频播放。
+              </audio>
+            ` : `
+              <!-- 视频播放器 -->
+              <div class="rounded-3xl overflow-hidden bg-black"
+                   style="box-shadow: 0 8px 32px rgba(0,0,0,0.12);">
+                <video controls
+                       class="w-full"
+                       style="max-height: 70vh; outline: none;"
+                       poster="${work.cover}"
+                       controlslist="nodownload"
+                       oncontextmenu="return false;"
+                       disablePictureInPicture>
+                  <source src="${work.videoSrc}" type="video/mp4">
+                  你的浏览器不支持视频播放。
+                </video>
+              </div>
+            `}
+          </div>
+        `;
+      } else {
+        // ===== 活动/晚会类作品（文字 + 图片轮播） =====
+        html = `
+          <div class="w-full" style="max-width: 800px; margin: 0 auto;">
+            <!-- 返回 -->
+            <div class="flex items-center gap-3 mb-6">
+              <button onclick="renderCategoryPage('direct')"
+                      class="carousel-btn w-10 h-10 rounded-2xl bg-white flex items-center justify-center"
+                      style="box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <div>
+                <h2 class="text-xl font-bold text-gray-800">${work.title}</h2>
+                <p class="text-sm text-gray-400">${work.date}</p>
+              </div>
+            </div>
+
+            <!-- 活动描述 -->
+            <div class="bg-white rounded-3xl p-6 mb-6"
+                 style="box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+              <p class="text-gray-600 leading-relaxed">${work.description || ''}</p>
+            </div>
+
+            <!-- 图片轮播（带说明文字） -->
+            ${work.images && work.images.length > 0 ? `
+              <div class="relative rounded-3xl overflow-hidden bg-gray-100 aspect-[16/10]"
+                   style="box-shadow: 0 8px 32px rgba(0,0,0,0.08);"
+                   id="carouselMain">
+                ${work.images.map((img, i) => `
+                  <div class="carousel-slide absolute inset-0 transition-opacity duration-500 ${i === 0 ? 'opacity-100' : 'opacity-0 pointer-events-none'}"
+                       data-index="${i}">
+                    ${protectedImg(img.src, img.caption, 'w-full h-full')}
+                    <div class="absolute bottom-0 left-0 right-0 p-4 z-10"
+                         style="background: linear-gradient(transparent, rgba(0,0,0,0.5));">
+                      <p class="text-white text-sm">${img.caption || ''}</p>
+                    </div>
+                  </div>
+                `).join('')}
+
+                <!-- 左右箭头 -->
+                <button onclick="carouselNav(-1, ${work.images.length})"
+                        class="carousel-btn absolute left-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center"
+                        style="box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+                  <svg class="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                  </svg>
+                </button>
+                <button onclick="carouselNav(1, ${work.images.length})"
+                        class="carousel-btn absolute right-3 top-1/2 -translate-y-1/2 z-30 w-10 h-10 rounded-full bg-white/80 backdrop-blur flex items-center justify-center"
+                        style="box-shadow: 0 2px 12px rgba(0,0,0,0.1);">
+                  <svg class="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+
+              <!-- 缩略图条 -->
+              <div class="flex items-center justify-center gap-2 mt-4 overflow-x-auto py-2">
+                ${work.images.map((img, i) => `
+                  <div class="thumb-item flex-shrink-0 w-14 h-14 rounded-xl overflow-hidden cursor-pointer ${i === 0 ? 'active' : ''}"
+                       onclick="carouselGoTo(${i}, ${work.images.length})">
+                    ${protectedImg(img.src, '', 'w-full h-full')}
+                  </div>
+                `).join('')}
+              </div>
+            ` : ''}
+          </div>
+        `;
+      }
+
+      carouselIndex = 0;
+      renderPage(html);
+    }
+
+
+    // =============================================
+    // 三级页面 —— 学者作品详情（可滚动文字）
+    // =============================================
+    function renderScholarDetail(workId) {
+      const work = SITE_DATA.scholarWorks.find(w => w.id === workId);
+      if (!work) return;
+
+      currentSubPage = workId;
+
+      profileAvatar.src = work.cover;
+      profileName.textContent = work.title;
+      profileBio.innerHTML = work.date;
+
+      const imagesHtml = (work.images || []).map(src => `
+        <div class="my-5">
+          ${protectedImg(src, work.title, 'w-full rounded-2xl overflow-hidden')}
+        </div>
+      `).join('');
+
+      let html = `
+        <div class="w-full" style="max-width: 800px; margin: 0 auto;">
+          <!-- 返回 -->
+          <div class="flex items-center gap-3 mb-6">
+            <button onclick="renderCategoryPage('scholar')"
+                    class="carousel-btn w-10 h-10 rounded-2xl bg-white flex items-center justify-center"
+                    style="box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+              <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <div>
+              <h2 class="text-xl font-bold text-gray-800">${work.title}</h2>
+              <p class="text-sm text-gray-400">${work.date}</p>
+            </div>
+          </div>
+
+          <!-- 可滚动的论文内容区 -->
+          <div class="bg-white rounded-3xl p-6 lg:p-8 overflow-y-auto custom-scroll"
+               style="max-height: 65vh; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+            ${work.content || ''}
+            ${imagesHtml}
+          </div>
+        </div>
+      `;
+
+      renderPage(html);
+    }
+
+
+    // =============================================
+    // 三级页面 —— 公益作品详情（小红书风格图文混排）
+    // =============================================
+    function renderCharityDetail(workId) {
+      const work = SITE_DATA.charityWorks.find(w => w.id === workId);
+      if (!work) return;
+
+      currentSubPage = workId;
+
+      profileAvatar.src = work.cover;
+      profileName.textContent = work.title;
+      profileBio.innerHTML = work.date;
+
+      // 构造图文混排：文字段落 + 图片交替
+      const imagesHtml = (work.images || []).map(img => `
+        <div class="my-5">
+          ${protectedImg(img.src, img.caption, 'w-full rounded-2xl overflow-hidden')}
+          ${img.caption ? `<p class="text-center text-xs text-gray-400 mt-2">${img.caption}</p>` : ''}
+        </div>
+      `).join('');
+
+      let html = `
+        <div class="w-full" style="max-width: 800px; margin: 0 auto;">
+          <!-- 返回 -->
+          <div class="flex items-center gap-3 mb-6">
+            <button onclick="renderCategoryPage('charity')"
+                    class="carousel-btn w-10 h-10 rounded-2xl bg-white flex items-center justify-center"
+                    style="box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+              <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <div>
+              <h2 class="text-xl font-bold text-gray-800">${work.title}</h2>
+              <p class="text-sm text-gray-400">${work.date}</p>
+            </div>
+          </div>
+
+          <!-- 小红书风格可滚动图文区 -->
+          <div class="bg-white rounded-3xl p-6 lg:p-8 overflow-y-auto custom-scroll"
+               style="max-height: 65vh; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+            ${work.content || ''}
+            ${imagesHtml}
+          </div>
+        </div>
+      `;
+
+      renderPage(html);
+    }
+
+
+    // =============================================
+    // DouBle 生活页面（六宫格 + 换一换）
+    // =============================================
+    function renderLifePage() {
+      currentPage = 'life';
+      currentSubPage = null;
+      updateProfile('life');
+
+      const lifeSet = SITE_DATA.lifeSets[currentLifeSetIndex];
+
+      let html = `
+        <div class="w-full" style="max-width: 800px; margin: 0 auto;">
+          <!-- 头部：返回 + 标题 + 换一换按钮 -->
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-3">
+              <button onclick="renderHome()"
+                      class="carousel-btn w-10 h-10 rounded-2xl bg-white flex items-center justify-center"
+                      style="box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+                <svg class="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <h2 class="text-xl lg:text-2xl font-bold text-gray-800 tracking-tight">DouBle 的生活</h2>
+            </div>
+
+            <!-- 换一换按钮 -->
+            <button onclick="shuffleLife()"
+                    class="carousel-btn flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-white text-sm text-gray-500 font-medium"
+                    style="box-shadow: 0 2px 12px rgba(0,0,0,0.06);">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+              </svg>
+              换一换
+            </button>
+          </div>
+
+          <!-- 六宫格（3×2） -->
+          <div id="lifeGrid" class="grid grid-cols-2 lg:grid-cols-3 gap-4">
+            ${lifeSet.map((item, i) => `
+              <div class="fade-in grid-card-hover rounded-3xl overflow-hidden bg-white"
+                   style="box-shadow: 0 4px 20px rgba(0,0,0,0.05); animation-delay: ${i * 0.08}s; opacity: 0;">
+                <div class="aspect-square">
+                  ${protectedImg(item.image, item.text, 'w-full h-full')}
+                </div>
+                <div class="p-3 lg:p-4">
+                  <p class="text-sm text-gray-500 leading-relaxed">${item.text}</p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+
+      renderPage(html);
+    }
+
+    /** 换一换：随机切换生活照组 */
+    function shuffleLife() {
+      let newIndex;
+      do {
+        newIndex = Math.floor(Math.random() * SITE_DATA.lifeSets.length);
+      } while (newIndex === currentLifeSetIndex && SITE_DATA.lifeSets.length > 1);
+
+      currentLifeSetIndex = newIndex;
+
+      // 重新渲染生活页面的网格部分（带淡入动画）
+      const lifeSet = SITE_DATA.lifeSets[currentLifeSetIndex];
+      const grid = document.getElementById('lifeGrid');
+      if (!grid) return;
+
+      // 先淡出
+      grid.style.opacity = '0';
+      grid.style.transform = 'scale(0.97)';
+      grid.style.transition = 'all 0.25s ease';
+
+      setTimeout(() => {
+        grid.innerHTML = lifeSet.map((item, i) => `
+          <div class="fade-in grid-card-hover rounded-3xl overflow-hidden bg-white"
+               style="box-shadow: 0 4px 20px rgba(0,0,0,0.05); animation-delay: ${i * 0.08}s; opacity: 0;">
+            <div class="aspect-square">
+              ${protectedImg(item.image, item.text, 'w-full h-full')}
+            </div>
+            <div class="p-3 lg:p-4">
+              <p class="text-sm text-gray-500 leading-relaxed">${item.text}</p>
+            </div>
+          </div>
+        `).join('');
+
+        // 淡入
+        grid.style.opacity = '1';
+        grid.style.transform = 'scale(1)';
+      }, 250);
+    }
+
+
+    // =============================================
+    // 页面导航路由
+    // =============================================
+
+    /** 从主页导航到二级页面 */
+    function navigateTo(page) {
+      if (page === 'life') {
+        renderLifePage();
+      } else {
+        renderCategoryPage(page);
+      }
+    }
+
+    /** 从二级页面导航到三级详情页 */
+    function navigateToDetail(category, workId) {
+      carouselIndex = 0;
+
+      switch (category) {
+        case 'design':
+          renderDesignDetail(workId);
+          break;
+        case 'direct':
+          renderDirectDetail(workId);
+          break;
+        case 'scholar':
+          renderScholarDetail(workId);
+          break;
+        case 'charity':
+          renderCharityDetail(workId);
+          break;
+      }
+    }
+
+
+    // =============================================
+    // 键盘快捷键支持
+    // =============================================
+    document.addEventListener('keydown', (e) => {
+      // ESC 返回上一级
+      if (e.key === 'Escape') {
+        if (currentSubPage) {
+          renderCategoryPage(currentPage);
+        } else if (currentPage !== 'home') {
+          renderHome();
+        }
+      }
+
+      // 轮播页面的左右箭头
+      if (currentSubPage) {
+        const slides = document.querySelectorAll('.carousel-slide');
+        if (slides.length > 0) {
+          if (e.key === 'ArrowLeft')  carouselNav(-1, slides.length);
+          if (e.key === 'ArrowRight') carouselNav(1, slides.length);
+        }
+      }
+    });
+
+
+    // =============================================
+    // 额外防护：禁止各种下载手段
+    // =============================================
+
+    // 禁止拖拽图片
+    document.addEventListener('dragstart', (e) => {
+      if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+      }
+    });
+
+    // 禁止键盘快捷键保存/打印
+    document.addEventListener('keydown', (e) => {
+      // Ctrl+S / Cmd+S
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+      }
+      // Ctrl+P / Cmd+P
+      if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+        e.preventDefault();
+      }
+      // Ctrl+U（查看源码）
+      if ((e.ctrlKey || e.metaKey) && e.key === 'u') {
+        e.preventDefault();
+      }
+    });
+
+
+    // =============================================
+    // 启动：渲染主页
+    // =============================================
+    renderHome();
+
+  </script>
+</body>
+</html>
