@@ -20,12 +20,11 @@ function renderHome() {
 
   var cards = SITE_DATA.homeCards;
   var html =
-    '<div class="flex-1 flex flex-col justify-center items-center">' +
-      '<div class="relative w-full" style="max-width: 600px;">' +
-        // 四宫格
-        '<div class="grid grid-cols-2 gap-3 lg:gap-4">' +
+    '<div class="flex-1 flex flex-col justify-center h-full">' +
+      '<div class="relative w-full h-full flex flex-col justify-center">' +
+        '<div class="grid grid-cols-2 gap-3 lg:gap-4 h-full">' +
           cards.map(function(c) {
-            return '<div class="grid-card-hover rounded-3xl overflow-hidden aspect-[16/10] relative" ' +
+            return '<div class="grid-card-hover rounded-3xl overflow-hidden aspect-[16/10] relative h-full"' +
               'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);" ' +
               'onclick="navigateTo(\'' + c.page + '\')">' +
               protectedImg(c.image, c.title, 'w-full h-full absolute inset-0') +
@@ -35,7 +34,6 @@ function renderHome() {
               '</div></div>';
           }).join('') +
         '</div>' +
-        // 中央大圆（纯图片，无文字）
         '<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">' +
           '<div class="circle-card rounded-full overflow-hidden w-24 h-24 lg:w-32 lg:h-32 border-4 border-white relative" ' +
           'style="box-shadow: 0 12px 40px rgba(0,0,0,0.15);" ' +
