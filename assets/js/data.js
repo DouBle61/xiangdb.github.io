@@ -17,35 +17,35 @@ const SITE_DATA = {
   // ---- 各身份名片 ----
   profiles: {
     design: {
-      avatar: 'assets/img/125.jpg',
+      avatar: 'assets/img/kak1.jpg',
       name: '郭勇 DouBle',
       bio: '视觉设计师 / 品牌策划人',
       showSocial: false,
       subBio: '擅长 UI/UX、品牌视觉、平面海报。<br/>相信设计是理性与感性的交汇点。<br/>作品曾入选多个设计展览。'
     },
     direct: {
-      avatar: 'assets/img/125.jpg',
+      avatar: 'assets/img/kak2.jpg',
       name: '郭勇 DouBle',
       bio: '编导 / 内容创作者',
       showSocial: false,
       subBio: '独立编导多部短片与校园晚会。<br/>用镜头和声音讲述有温度的故事。<br/>从脚本到后期，全流程把控。'
     },
     scholar: {
-      avatar: 'assets/img/125.jpg',
+      avatar: 'assets/img/kak3.jpg',
       name: '郭勇 DouBle',
       bio: '青年学者 / 研究者',
       showSocial: false,
       subBio: '关注传播学、数字媒体与文化研究。<br/>持续探索学术与实践的交叉地带。<br/>发表 CSSCI 论文若干。'
     },
     charity: {
-      avatar: 'assets/img/125.jpg',
+      avatar: 'assets/img/kak4.jpg',
       name: 'DouBle',
       bio: '郭勇 公益行动者 / 志愿者',
       showSocial: false,
       subBio: '参与多项乡村教育与环保公益。<br/>相信每一份微小的善意都有回响。<br/>累计志愿服务 500+ 小时。'
     },
     life: {
-      avatar: 'assets/img/125.jpg',
+      avatar: 'assets/img/kak0.jpg',
       name: '郭勇 DouBle',
       bio: '生活记录者',
       showSocial: false,
@@ -55,14 +55,14 @@ const SITE_DATA = {
 
   // ---- 主页四卡片 ----
   homeCards: [
-    { id: 'design',  title: '设计 DouBle', image: 'assets/img/home-design.jpg',  page: 'design'  },
-    { id: 'direct',  title: '编导 DouBle', image: 'assets/img/home-direct.jpg',  page: 'direct'  },
-    { id: 'scholar', title: '研究 DouBle', image: 'assets/img/home-scholar.jpg', page: 'scholar' },
-    { id: 'charity', title: '公益 DouBle', image: 'assets/img/home-charity.jpg', page: 'charity' },
+    { id: 'design',  title: '设计 DouBle', image: 'assets/img/kak1.jpg',  page: 'design'  },
+    { id: 'direct',  title: '编导 DouBle', image: 'assets/img/kak2.jpg',  page: 'direct'  },
+    { id: 'scholar', title: '研究 DouBle', image: 'assets/img/kak3.jpg', page: 'scholar' },
+    { id: 'charity', title: '公益 DouBle', image: 'assets/img/kak4.jpg', page: 'charity' },
   ],
 
   // 主页中央圆形图片
-  homeLifeCircle: 'assets/img/home-life.jpg',
+  homeLifeCircle: 'assets/img/kak0.jpg',
 
   // ---- 设计作品 ----
   designWorks: [
