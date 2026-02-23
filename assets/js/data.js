@@ -77,7 +77,7 @@ const SITE_DATA = {
         'assets/img/design/celebration/9.jpg', 'assets/img/design/celebration/10.jpg',
         'assets/img/design/celebration/11.jpg', 'assets/img/design/celebration/12.jpg',
         'assets/img/design/celebration/13.jpg', 'assets/img/design/celebration/14.jpg',
-      ]
+      ],
       subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
@@ -105,7 +105,8 @@ const SITE_DATA = {
         'assets/img/design/winter/37.jpg', 'assets/img/design/winter/38.jpg',
         'assets/img/design/winter/39.jpg', 'assets/img/design/winter/40.jpg',
         'assets/img/design/winter/41.jpg', 'assets/img/design/winter/42.jpg',
-      ]
+      ],
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'design-3', title: '海报系列创作',
@@ -113,7 +114,8 @@ const SITE_DATA = {
       images: [
         'assets/img/design/work3-1.jpg', 'assets/img/design/work3-2.jpg',
         'assets/img/design/work3-3.jpg',
-      ]
+      ],
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'design-4', title: '展览主视觉设计',
@@ -121,12 +123,14 @@ const SITE_DATA = {
       images: [
         'assets/img/design/work4-1.jpg', 'assets/img/design/work4-2.jpg',
         'assets/img/design/work4-3.jpg', 'assets/img/design/work4-4.jpg',
-      ]
+      ],
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'design-5', title: '产品包装设计',
       cover: 'assets/img/design/work5-cover.jpg', date: '2024.06',
-      images: ['assets/img/design/work5-1.jpg', 'assets/img/design/work5-2.jpg']
+      images: ['assets/img/design/work5-1.jpg', 'assets/img/design/work5-2.jpg'],
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'design-6', title: '字体实验项目',
@@ -134,12 +138,14 @@ const SITE_DATA = {
       images: [
         'assets/img/design/work6-1.jpg', 'assets/img/design/work6-2.jpg',
         'assets/img/design/work6-3.jpg',
-      ]
+      ],
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'design-7', title: '摄影画册排版',
       cover: 'assets/img/design/work7-cover.jpg', date: '2023.12',
-      images: ['assets/img/design/work7-1.jpg', 'assets/img/design/work7-2.jpg']
+      images: ['assets/img/design/work7-1.jpg', 'assets/img/design/work7-2.jpg'],
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'design-8', title: '社交媒体视觉',
@@ -147,7 +153,8 @@ const SITE_DATA = {
       images: [
         'assets/img/design/work8-1.jpg', 'assets/img/design/work8-2.jpg',
         'assets/img/design/work8-3.jpg',
-      ]
+      ],
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
   ],
 
@@ -157,6 +164,7 @@ const SITE_DATA = {
       id: 'direct-1', title: '短片《回声》', type: 'video',
       cover: 'assets/img/direct/work1-cover.jpg', date: '2025.05',
       videoSrc: 'assets/img/direct/work1-video.mp4',
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'direct-2', title: '校园跨年晚会总导演', type: 'event',
@@ -167,17 +175,20 @@ const SITE_DATA = {
         { src: 'assets/img/direct/work2-2.jpg', caption: '排练现场' },
         { src: 'assets/img/direct/work2-3.jpg', caption: '演出当晚' },
         { src: 'assets/img/direct/work2-4.jpg', caption: '团队合影' },
-      ]
+      ],
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'direct-3', title: '纪录片《手艺》', type: 'video',
       cover: 'assets/img/direct/work3-cover.jpg', date: '2024.08',
       videoSrc: 'assets/img/direct/work3-video.mp4',
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'direct-4', title: '广播剧《深夜电台》', type: 'video',
       cover: 'assets/img/direct/work4-cover.jpg', date: '2024.04',
       videoSrc: 'assets/img/direct/work4-audio.mp3',
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'direct-5', title: '毕业典礼导演', type: 'event',
@@ -187,7 +198,9 @@ const SITE_DATA = {
         { src: 'assets/img/direct/work5-1.jpg', caption: '典礼主视觉' },
         { src: 'assets/img/direct/work5-2.jpg', caption: '现场全景' },
         { src: 'assets/img/direct/work5-3.jpg', caption: '学位授予仪式' },
-      ]
+      ],
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
+      
     },
   ],
 
