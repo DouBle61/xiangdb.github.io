@@ -7,9 +7,9 @@ const SITE_DATA = {
 
   // ---- 默认名片 ----
   defaultProfile: {
-    avatar: 'assets/img/avatar.jpg',
-    name: 'DouBle',
-    bio: '设计 · 编导 · 学者 · 公益<br/>在每一种身份里，认真生活。',
+    avatar: 'assets/img/125.jpg',
+    name: '郭勇 DouBle',
+    bio: '设计 · 编导 · 研究 · 公益<br/>不给自己设限。',
     showSocial: true,        // true = 显示社交图标
     subBio: ''               // 空 = 不显示下方身份文字
   },
@@ -17,39 +17,39 @@ const SITE_DATA = {
   // ---- 各身份名片 ----
   profiles: {
     design: {
-      avatar: 'assets/img/avatar.jpg',
-      name: 'DouBle',
+      avatar: 'assets/img/125.jpg',
+      name: '郭勇 DouBle',
       bio: '视觉设计师 / 品牌策划人',
       showSocial: false,
-      subBio: '擅长 UI/UX、品牌视觉、平面海报。<br/>相信设计是理性与感性的交汇点。<br/>作品曾入选多个设计展览。'
+      #subBio: '擅长 UI/UX、品牌视觉、平面海报。<br/>相信设计是理性与感性的交汇点。<br/>作品曾入选多个设计展览。'
     },
     direct: {
-      avatar: 'assets/img/avatar.jpg',
-      name: 'DouBle',
+      avatar: 'assets/img/125.jpg',
+      name: '郭勇 DouBle',
       bio: '编导 / 内容创作者',
       showSocial: false,
-      subBio: '独立编导多部短片与校园晚会。<br/>用镜头和声音讲述有温度的故事。<br/>从脚本到后期，全流程把控。'
+      #subBio: '独立编导多部短片与校园晚会。<br/>用镜头和声音讲述有温度的故事。<br/>从脚本到后期，全流程把控。'
     },
     scholar: {
-      avatar: 'assets/img/avatar.jpg',
-      name: 'DouBle',
+      avatar: 'assets/img/125.jpg',
+      name: '郭勇 DouBle',
       bio: '青年学者 / 研究者',
       showSocial: false,
-      subBio: '关注传播学、数字媒体与文化研究。<br/>持续探索学术与实践的交叉地带。<br/>发表 CSSCI 论文若干。'
+      #subBio: '关注传播学、数字媒体与文化研究。<br/>持续探索学术与实践的交叉地带。<br/>发表 CSSCI 论文若干。'
     },
     charity: {
-      avatar: 'assets/img/avatar.jpg',
+      avatar: 'assets/img/125.jpg',
       name: 'DouBle',
-      bio: '公益行动者 / 志愿者',
+      bio: '郭勇 公益行动者 / 志愿者',
       showSocial: false,
-      subBio: '参与多项乡村教育与环保公益。<br/>相信每一份微小的善意都有回响。<br/>累计志愿服务 500+ 小时。'
+      #subBio: '参与多项乡村教育与环保公益。<br/>相信每一份微小的善意都有回响。<br/>累计志愿服务 500+ 小时。'
     },
     life: {
-      avatar: 'assets/img/avatar-life.jpg',
-      name: 'DouBle',
+      avatar: 'assets/img/125.jpg',
+      name: '郭勇 DouBle',
       bio: '生活记录者',
       showSocial: false,
-      subBio: '喜欢咖啡、旅行、胶片摄影。<br/>在日常中发现不日常的美。<br/>用快门记住每一个瞬间。'
+      #subBio: '喜欢咖啡、旅行、胶片摄影。<br/>在日常中发现不日常的美。<br/>用快门记住每一个瞬间。'
     }
   },
 
@@ -57,7 +57,7 @@ const SITE_DATA = {
   homeCards: [
     { id: 'design',  title: '设计 DouBle', image: 'assets/img/home-design.jpg',  page: 'design'  },
     { id: 'direct',  title: '编导 DouBle', image: 'assets/img/home-direct.jpg',  page: 'direct'  },
-    { id: 'scholar', title: '学者 DouBle', image: 'assets/img/home-scholar.jpg', page: 'scholar' },
+    { id: 'scholar', title: '研究 DouBle', image: 'assets/img/home-scholar.jpg', page: 'scholar' },
     { id: 'charity', title: '公益 DouBle', image: 'assets/img/home-charity.jpg', page: 'charity' },
   ],
 
