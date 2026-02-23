@@ -78,6 +78,7 @@ const SITE_DATA = {
         'assets/img/design/celebration/11.jpg', 'assets/img/design/celebration/12.jpg',
         'assets/img/design/celebration/13.jpg', 'assets/img/design/celebration/14.jpg',
       ]
+      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
       id: 'design-2', title: '第十四届全国冬季运动会吉祥物传播设计',
