@@ -67,7 +67,7 @@ const SITE_DATA = {
   // ---- 设计作品 ----
   designWorks: [
     {
-      id: 'design-1', title: '中国传媒大学70周年校庆主标识设计',
+      id: 'design-1', title: '中国传媒大学70周年校庆主标识传播设计',
       cover: 'assets/img/design/celebration/1.jpg', date: '2025.06',
       images: [
         'assets/img/design/celebration/1.jpg', 'assets/img/design/celebration/2.jpg',
@@ -80,11 +80,30 @@ const SITE_DATA = {
       ]
     },
     {
-      id: 'design-2', title: 'APP 界面设计',
+      id: 'design-2', title: '第十四届全国冬季运动会吉祥物传播设计',
       cover: 'assets/img/design/work2-cover.jpg', date: '2025.03',
       images: [
-        'assets/img/design/work2-1.jpg', 'assets/img/design/work2-2.jpg',
-        'assets/img/design/work2-3.jpg', 'assets/img/design/work2-4.jpg',
+        'assets/img/design/winter/1.jpg', 'assets/img/design/winter/2.jpg',
+        'assets/img/design/winter/3.jpg', 'assets/img/design/winter/4.jpg',
+        'assets/img/design/winter/5.jpg', 'assets/img/design/winter/6.jpg',
+        'assets/img/design/winter/7.jpg', 'assets/img/design/winter/8.jpg',
+        'assets/img/design/winter/9.jpg', 'assets/img/design/winter/10.jpg',
+        'assets/img/design/winter/11.jpg', 'assets/img/design/winter/12.jpg',
+        'assets/img/design/winter/13.jpg', 'assets/img/design/winter/14.jpg',
+        'assets/img/design/winter/15.jpg', 'assets/img/design/winter/16.jpg',
+        'assets/img/design/winter/17.jpg', 'assets/img/design/winter/18.jpg',
+        'assets/img/design/winter/19.jpg', 'assets/img/design/winter/20.jpg',
+        'assets/img/design/winter/21.jpg', 'assets/img/design/winter/22.jpg',
+        'assets/img/design/winter/23.jpg', 'assets/img/design/winter/24.jpg',
+        'assets/img/design/winter/25.jpg', 'assets/img/design/winter/26.jpg',
+        'assets/img/design/winter/27.jpg', 'assets/img/design/winter/28.jpg',
+        'assets/img/design/winter/29.jpg', 'assets/img/design/winter/30.jpg',
+        'assets/img/design/winter/31.jpg', 'assets/img/design/winter/32.jpg',
+        'assets/img/design/winter/33.jpg', 'assets/img/design/winter/34.jpg',
+        'assets/img/design/winter/35.jpg', 'assets/img/design/winter/36.jpg',
+        'assets/img/design/winter/37.jpg', 'assets/img/design/winter/38.jpg',
+        'assets/img/design/winter/39.jpg', 'assets/img/design/winter/40.jpg',
+        'assets/img/design/winter/41.jpg', 'assets/img/design/winter/42.jpg',
       ]
     },
     {
