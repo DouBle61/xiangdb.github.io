@@ -344,7 +344,7 @@ function updateDetailProfile(work) {
   bio.innerHTML = work.date;
   social.classList.add('hidden');
   subBio.classList.remove('hidden');
-  subBio.innerHTML = '点击左上角返回查看更多作品';
+  subBio.innerHTML = '';
 }
 
 
