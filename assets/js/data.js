@@ -68,7 +68,7 @@ const SITE_DATA = {
   designWorks: [
     {
       id: 'design-1', title: '中国传媒大学70周年校庆主标识传播设计',
-      cover: 'assets/img/design/celebration/1.jpg', date: '2025.06',
+      cover: 'assets/img/design/celebration/1.jpg', date: '2024.06',
       images: [
         'assets/img/design/celebration/1.jpg', 'assets/img/design/celebration/2.jpg',
         'assets/img/design/celebration/3.jpg', 'assets/img/design/celebration/4.jpg',
@@ -78,7 +78,7 @@ const SITE_DATA = {
         'assets/img/design/celebration/11.jpg', 'assets/img/design/celebration/12.jpg',
         'assets/img/design/celebration/13.jpg', 'assets/img/design/celebration/14.jpg',
       ],
-      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
+      subBio: '中国传媒大学70周年校庆视觉形象识别系统设计团队由武定宇教授主持，包括4名指导教师、16名学生，采取“组内合作，组间比稿”的形式，共分为4组，本人贡献度主要在比稿期间，承担2个小组的策划工作及部分设计工作。'
     },
     {
       id: 'design-2', title: '第十四届全国冬季运动会吉祥物传播设计',
@@ -106,7 +106,7 @@ const SITE_DATA = {
         'assets/img/design/winter/39.jpg', 'assets/img/design/winter/40.jpg',
         'assets/img/design/winter/41.jpg', 'assets/img/design/winter/42.jpg',
       ],
-      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
+      subBio: '第十四届全国冬季运动会吉祥物及IP衍生设计团队由武定宇教授主持，包括4名指导教师、16名学生，采取“组内合作，组间比稿”的形式，共分为4组，本人贡献度覆盖全周期，包括前期个人设计方案呈现及后期组内全部策划工作及部分设计工作。'
     },
     {
       id: 'design-3', title: '海报系列创作',
