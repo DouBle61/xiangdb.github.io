@@ -9,7 +9,7 @@ const SITE_DATA = {
   defaultProfile: {
     avatar: 'assets/img/125.jpg',
     name: '郭勇 DouBle',
-    bio: '不给自己设限<br/>一个出生于东北<br/>奋斗于北京<br/>流窜在江浙沪<br/>希望以后在港深生活的<br/>四分之一俄罗斯混血',
+    bio: '-不给自己设限-<br/>一个出生于东北<br/>奋斗于北京<br/>流窜在江浙沪<br/>希望以后在港深生活的<br/>四分之一俄罗斯混血',
     showSocial: true,        // true = 显示社交图标
     subBio: ''               // 空 = 不显示下方身份文字
   },
