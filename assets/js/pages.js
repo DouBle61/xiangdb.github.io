@@ -344,7 +344,7 @@ function updateDetailProfile(work) {
   bio.innerHTML = work.date;
   social.classList.add('hidden');
   subBio.classList.remove('hidden');
-  subBio.innerHTML = '';
+  subBio.innerHTML = work.subBio || '';
 }
 
 
