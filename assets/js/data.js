@@ -81,7 +81,7 @@ const SITE_DATA = {
     },
     {
       id: 'design-2', title: '第十四届全国冬季运动会吉祥物传播设计',
-      cover: 'assets/img/design/work2-cover.jpg', date: '2025.03',
+      cover: 'assets/img/design/winter/1.jpg', date: '2025.03',
       images: [
         'assets/img/design/winter/1.jpg', 'assets/img/design/winter/2.jpg',
         'assets/img/design/winter/3.jpg', 'assets/img/design/winter/4.jpg',
