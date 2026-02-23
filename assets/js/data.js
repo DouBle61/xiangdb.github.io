@@ -67,12 +67,16 @@ const SITE_DATA = {
   // ---- 设计作品 ----
   designWorks: [
     {
-      id: 'design-1', title: '品牌视觉重塑',
-      cover: 'assets/img/design/work1-cover.jpg', date: '2025.06',
+      id: 'design-1', title: '中国传媒大学70周年校庆主标识设计',
+      cover: 'assets/img/design/celebration/1.jpg', date: '2025.06',
       images: [
-        'assets/img/design/work1-1.jpg', 'assets/img/design/work1-2.jpg',
-        'assets/img/design/work1-3.jpg', 'assets/img/design/work1-4.jpg',
-        'assets/img/design/work1-5.jpg',
+        'assets/img/design/celebration/1.jpg', 'assets/img/design/celebration/2.jpg',
+        'assets/img/design/celebration/3.jpg', 'assets/img/design/celebration/4.jpg',
+        'assets/img/design/celebration/5.jpg', 'assets/img/design/celebration/6.jpg',
+        'assets/img/design/celebration/7.jpg', 'assets/img/design/celebration/8.jpg',
+        'assets/img/design/celebration/9.jpg', 'assets/img/design/celebration/10.jpg',
+        'assets/img/design/celebration/11.jpg', 'assets/img/design/celebration/12.jpg',
+        'assets/img/design/celebration/13.jpg', 'assets/img/design/celebration/14.jpg',
       ]
     },
     {
