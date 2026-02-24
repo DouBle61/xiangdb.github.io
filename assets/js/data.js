@@ -99,7 +99,7 @@ const SITE_DATA = {
     },
     {
       id: 'design-2', title: '第十四届全国冬季运动会吉祥物传播设计',
-      cover: 'assets/img/design/winter/1.jpg', date: '2025.03',
+      cover: 'assets/img/design/winter/1.jpg', date: '2023.06',
       images: [
         'assets/img/design/winter/1.jpg', 'assets/img/design/winter/2.jpg',
         'assets/img/design/winter/3.jpg', 'assets/img/design/winter/4.jpg',
@@ -126,13 +126,30 @@ const SITE_DATA = {
       subBio: '第十四届全国冬季运动会吉祥物及IP衍生设计团队由武定宇教授主持，包括4名指导教师、16名学生，采取“组内合作，组间比稿”的形式，共分为4组，本人贡献度覆盖全周期，包括前期个人设计方案呈现及后期组内全部策划工作及部分设计工作。'
     },
     {
-      id: 'design-3', title: '海报系列创作',
-      cover: 'assets/img/design/work3-cover.jpg', date: '2024.12',
+      id: 'design-3', title: '北京文化艺术基金老字号商印展',
+      cover: 'assets/img/design/exh/1.jpg', date: '2025.03',
       images: [
-        'assets/img/design/work3-1.jpg', 'assets/img/design/work3-2.jpg',
-        'assets/img/design/work3-3.jpg',
+        'assets/img/design/exh/1.jpg', 'assets/img/design/exh/2.jpg',
+        'assets/img/design/exh/3.jpg', 'assets/img/design/exh/4.jpg',
+        'assets/img/design/exh/5.jpg', 'assets/img/design/exh/6.jpg',
+        'assets/img/design/exh/7.jpg', 'assets/img/design/exh/8.jpg',
+        'assets/img/design/exh/9.jpg', 'assets/img/design/exh/10.jpg',
+        'assets/img/design/exh/11.jpg', 'assets/img/design/exh/12.jpg',
+        'assets/img/design/exh/13.jpg', 'assets/img/design/exh/14.jpg',
+        'assets/img/design/exh/15.jpg', 'assets/img/design/exh/16.jpg',
+        'assets/img/design/exh/17.jpg', 'assets/img/design/exh/18.jpg',
+        'assets/img/design/exh/19.jpg', 'assets/img/design/exh/20.jpg',
+        'assets/img/design/exh/21.jpg', 'assets/img/design/exh/22.jpg',
+        'assets/img/design/exh/23.jpg', 'assets/img/design/exh/24.jpg',
+        'assets/img/design/exh/25.jpg', 'assets/img/design/exh/26.jpg',
+        'assets/img/design/exh/27.jpg', 'assets/img/design/exh/28.jpg',
+        'assets/img/design/exh/29.jpg', 'assets/img/design/exh/30.jpg',
+        'assets/img/design/exh/31.jpg', 'assets/img/design/exh/32.jpg',
+        'assets/img/design/exh/33.jpg', 'assets/img/design/exh/34.jpg',
+        'assets/img/design/exh/35.jpg', 'assets/img/design/exh/36.jpg',
+        'assets/img/design/exh/37.jpg', 'assets/img/design/exh/38.jpg',
       ],
-      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
+      subBio: '北京文化艺术基金老字号商印展团队由刘英华教授主持，基于博物馆策展实践课程覆盖近200余人，采取“帮帮带”形式基于三个展厅分为不同小组，本人贡献度覆盖全周期，作为总负责人主推全团队策展方面与衍生开发方面的全部工作。'
     },
     {
       id: 'design-4', title: '展览主视觉设计',
