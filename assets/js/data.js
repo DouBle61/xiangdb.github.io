@@ -218,39 +218,33 @@ const SITE_DATA = {
       subBio: '本人为该公益广告第一主创，此版本为粤港澳全运会版。'
     },
     {
-      id: 'direct-3', title: '综艺策划《原著党的春天》',
-      cover: 'assets/img/design/exh/1.jpg', date: '2025.03',
+      id: 'direct-3', title: '综艺策划《原著党的春天》', type: 'event',
+      cover: 'assets/img/direct/work2-cover.jpg', date: '2024.12',
       images: [
-        'assets/img/direct/1.jpg', 'assets/img/direct/2.jpg',
-        'assets/img/direct/3.jpg', 'assets/img/direct/4.jpg',
-        'assets/img/direct/5.jpg', 'assets/img/direct/6.jpg',
-        'assets/img/direct/7.jpg', 'assets/img/direct/8.jpg',
-        'assets/img/direct/9.jpg', 'assets/img/direct/10.jpg',
-        'assets/img/direct/11.jpg', 'assets/img/direct/12.jpg',
-        'assets/img/direct/13.jpg',
+        { src: 'assets/img/direct/1.jpg', caption: '' },
+        { src: 'assets/img/direct/2.jpg', caption: '' },
+        { src: 'assets/img/direct/3.jpg', caption: '' },
+        { src: 'assets/img/direct/4.jpg', caption: '' },
+        { src: 'assets/img/direct/5.jpg', caption: '' },
+        { src: 'assets/img/direct/6.jpg', caption: '' },
+        { src: 'assets/img/direct/7.jpg', caption: '' },
+        { src: 'assets/img/direct/8.jpg', caption: '' },
+        { src: 'assets/img/direct/9.jpg', caption: '' },
+        { src: 'assets/img/direct/10.jpg', caption: '' },
+        { src: 'assets/img/direct/11.jpg', caption: '' },
+        { src: 'assets/img/direct/12.jpg', caption: '' },
+        { src: 'assets/img/direct/13.jpg', caption: '' },
       ],
       subBio: '本人为该综艺策划第一主创，本作品获欣喜文化主办综艺联创论坛活动中标作品，获得综艺导演岑俊义、腾讯综艺模式负责人杨智帆等业内外人士一致好评并筹备。'
     },
     {
-      id: 'direct-4', title: '校园跨年晚会总导演', type: 'event',
-      cover: 'assets/img/direct/work2-cover.jpg', date: '2024.12',
-      description: '担任 2024 年校园跨年晚会总导演，统筹 200+ 人团队，策划 15 个节目，观���超过 3000 人。',
-      images: [
-        { src: 'assets/img/direct/work2-1.jpg', caption: '晚会舞台主视觉' },
-        { src: 'assets/img/direct/work2-2.jpg', caption: '排练现场' },
-        { src: 'assets/img/direct/work2-3.jpg', caption: '演出当晚' },
-        { src: 'assets/img/direct/work2-4.jpg', caption: '团队合影' },
-      ],
-      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
-    },
-    {
-      id: 'direct-5', title: '广播剧《深夜电台》', type: 'video',
+      id: 'direct-4', title: '广播剧《深夜电台》', type: 'video',
       cover: 'assets/img/direct/work4-cover.jpg', date: '2024.04',
       videoSrc: 'assets/img/direct/work4-audio.mp3',
       subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
     },
     {
-      id: 'direct-6', title: '毕业典礼导演', type: 'event',
+      id: 'direct-5', title: '毕业典礼导演', type: 'event',
       cover: 'assets/img/direct/work5-cover.jpg', date: '2025.06',
       description: '负责毕业典礼整体流程设计与现场执行，在线观看突破 10 万人次。',
       images: [
