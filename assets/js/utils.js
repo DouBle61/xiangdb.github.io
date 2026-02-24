@@ -7,7 +7,7 @@ function protectedImg(src, alt, extraClass, extraStyle) {
   extraClass = extraClass || '';
   extraStyle = extraStyle || '';
   return '<div class="img-protect ' + extraClass + '" style="' + extraStyle + '" oncontextmenu="return false;">' +
-    '<img src="' + src + '" alt="' + (alt || '') + '" class="w-full h-full object-cover" draggable="false" />' +
+    '<img src="' + src + '" alt="' + (alt || '') + '" class="w-full h-full object-contain" draggable="false" />' +
     '</div>';
 }
 
