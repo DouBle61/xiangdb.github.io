@@ -250,9 +250,6 @@ const SITE_DATA = {
       id: 'charity-1', title: '山区支教手记',
       cover: 'assets/img/charity/work1-cover.jpg', date: '2025.07',
       content: `<p class="text-gray-600 leading-relaxed mb-3 text-sm">2025 年暑期，前往云南山区小学支教三周。教授美术和语文课程，用镜头记录孩子们的日常。</p>
-      images: [
-        { src: 'assets/img/charity/work1-1.jpg', caption: '和孩子们在操场上' },
-      ]
         <p class="text-gray-600 leading-relaxed text-sm">他们的教室只有两间，黑板裂了好几道缝。但每个孩子的眼睛里，都藏着一整个宇宙。</p>`,
       images: [
         { src: 'assets/img/charity/work1-1.jpg', caption: '和孩子们在操场上' },
@@ -261,10 +258,11 @@ const SITE_DATA = {
     {
       id: 'charity-2', title: '流浪动物救助',
       cover: 'assets/img/charity/work2-cover.jpg', date: '2025.02',
-      content: `<p class="text-gray-600 leading-relaxed text-sm">参与动物保护组织的周末救助行动，负责拍摄记录与社交媒体传播。帮助 12 只流浪猫狗找到新家。「每一个生命都值得被温柔以待。」</p>`,
-      images: [
-        { src: 'assets/img/charity/work2-1.jpg', caption: '救助现场' },
-        { src: 'assets/img/charity/work2-2.jpg', caption: '送养成功的小橘' },
+      contentBlocks: [
+        { type: 'text', html: '<p class="text-gray-600 leading-relaxed text-sm">参与动物保护组织的周末救助行动，负责拍摄记录与社交媒体传播。帮助 12 只流浪猫狗找到新家。「每一个生命都值得被温柔以待。」</p>' },
+        { type: 'image', src: 'assets/img/charity/work2-1.jpg', caption: '救助现场' },
+        { type: 'text', html: '<p class="text-gray-600 leading-relaxed text-sm">还有一次夜间救助，印象深刻。</p>' },
+        { type: 'image', src: 'assets/img/charity/work2-2.jpg', caption: '送养成功的小橘' }
       ]
     },
     {
