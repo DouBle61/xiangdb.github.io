@@ -166,7 +166,7 @@ function renderDirectDetail(workId) {
   if (work.type === 'video') {
     var isAudio = work.videoSrc && work.videoSrc.endsWith('.mp3');
     if (isAudio) {
-      html += '<div class="rounded-3xl overflow-hidden bg-gray-100 aspect-[16/10] relative mb-3" style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);">';
+      html += '<div class="rounded-3xl overflow-hidden bg-gray-100 aspect-[16/9] relative mb-3" style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);">';
       html += protectedImg(work.cover, work.title, 'w-full h-full absolute inset-0');
       html += '<div class="absolute inset-0 flex items-center justify-center z-10" style="background:rgba(0,0,0,0.2);">';
       html += '<div class="w-14 h-14 rounded-full bg-white/90 backdrop-blur flex items-center justify-center" style="box-shadow:0 4px 16px rgba(0,0,0,0.12);">';
@@ -352,7 +352,7 @@ function updateDetailProfile(work) {
 // 辅助：轮播构建器（设计用 —— 无 caption）
 // =============================================
 function buildCarousel(images, title) {
-  var html = '<div class="relative rounded-3xl overflow-hidden bg-gray-100 aspect-[16/10] flex-shrink-0" ' +
+  var html = '<div class="relative rounded-3xl overflow-hidden bg-gray-100 aspect-[16/9] flex-shrink-0" ' +
     'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);" id="carouselMain">';
 
   images.forEach(function(img, i) {
@@ -383,7 +383,7 @@ function buildThumbStrip(images) {
 // 辅助：轮播构建器（编导活动用 —— 带 caption）
 // =============================================
 function buildCarouselCaptioned(images, title) {
-  var html = '<div class="relative rounded-3xl overflow-hidden bg-gray-100 aspect-[16/10] flex-shrink-0" ' +
+  var html = '<div class="relative rounded-3xl overflow-hidden bg-gray-100 aspect-[16/9] flex-shrink-0" ' +
     'style="box-shadow: 0 6px 24px rgba(0,0,0,0.07);" id="carouselMain">';
 
   images.forEach(function(img, i) {
