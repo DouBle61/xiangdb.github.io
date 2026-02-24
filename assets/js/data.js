@@ -152,13 +152,27 @@ const SITE_DATA = {
       subBio: '北京文化艺术基金老字号商印展团队由刘英华教授主持，基于博物馆策展实践课程覆盖近200余人，采取“帮帮带”形式基于三个展厅分为不同小组，本人贡献度覆盖全周期，作为总负责人主推全团队策展方面与衍生开发方面的全部工作。'
     },
     {
-      id: 'design-4', title: '展览主视觉设计',
-      cover: 'assets/img/design/work4-cover.jpg', date: '2024.09',
+      id: 'design-4', title: '天津城市文旅品牌策划案',
+      cover: 'assets/img/design/work4-cover.jpg', date: '2023.12',
       images: [
-        'assets/img/design/work4-1.jpg', 'assets/img/design/work4-2.jpg',
-        'assets/img/design/work4-3.jpg', 'assets/img/design/work4-4.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_1.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_2.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_3.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_4.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_5.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_6.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_7.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_8.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_9.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_10.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_11.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_12.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_13.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_14.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_15.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_16.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_17.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_18.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_19.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_20.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_21.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_22.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_23.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_24.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_25.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_26.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_27.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_28.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_29.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_30.jpg',
+        'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_31.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_32.jpg',
       ],
-      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
+      subBio: '本策划案由冯丙奇教授指导，小组共6人，包括4名策划和2名设计，本人担任负责人，承担主要策划工作及部分设计工作，本作品为中国大学生广告艺术节学院奖城市文旅NFR赛道唯一获奖作品。'
     },
     {
       id: 'design-5', title: '产品包装设计',
