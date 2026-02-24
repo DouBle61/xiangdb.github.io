@@ -153,7 +153,7 @@ const SITE_DATA = {
     },
     {
       id: 'design-4', title: '天津城市文旅品牌策划案',
-      cover: 'assets/img/design/work4-cover.jpg', date: '2023.12',
+      cover: 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_1.jpg', date: '2023.12',
       images: [
         'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_1.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_2.jpg',
         'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_3.jpg', 'assets/img/design/nezha/新哪吒闹海——天津城市文旅护照NFR营销策划案 (1)_4.jpg',
@@ -175,19 +175,16 @@ const SITE_DATA = {
       subBio: '本策划案由冯丙奇教授指导，小组共6人，包括4名策划和2名设计，本人担任负责人，承担主要策划工作及部分设计工作，本作品为中国大学生广告艺术节学院奖城市文旅NFR赛道唯一获奖作品。'
     },
     {
-      id: 'design-5', title: '产品包装设计',
-      cover: 'assets/img/design/work5-cover.jpg', date: '2024.06',
-      images: ['assets/img/design/work5-1.jpg', 'assets/img/design/work5-2.jpg'],
-      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
+      id: 'design-5', title: '创意交互网站设计',
+      cover: 'assets/img/design/dog/9-软微-作品集_17.jpg', date: '2023.06',
+      images: ['assets/img/design/dog/9-软微-作品集_17.jpg', 'assets/img/design/dog/9-软微-作品集_18.jpg', 'assets/img/design/dog/9-软微-作品集_19.jpg'],
+      subBio: '本网站设计由唐雪彤老师指导，小组共6人，本作品为课程作业，本人作为小组成员承担相应设计工作。'
     },
     {
-      id: 'design-6', title: '字体实验项目',
-      cover: 'assets/img/design/work6-cover.jpg', date: '2024.03',
-      images: [
-        'assets/img/design/work6-1.jpg', 'assets/img/design/work6-2.jpg',
-        'assets/img/design/work6-3.jpg',
-      ],
-      subBio: '的咖啡里加撒到了饭卡卡斯蒂略'
+      id: 'design-6', title: '京味文化文创设计',
+      cover: 'assets/img/design/rabbit/9-软微-作品集_16.jpg', date: '2023.12',
+      images: ['assets/img/design/rabbit/9-软微-作品集_16.jpg'],
+      subBio: '本作品由本人自主完成，获得北京市高校大学生文创设计大赛二等奖。'
     },
     {
       id: 'design-7', title: '摄影画册排版',
