@@ -220,22 +220,26 @@ function renderScholarDetail(workId) {
 // =============================================
 function renderCharityDetail(workId) {
   var work = SITE_DATA.charityWorks.find(function(w) { return w.id === workId; });
-  if (!work) return;
+  if (!work || !work.blocks) return;
   currentSubPage = workId;
   updateDetailProfile(work);
 
-  var imagesHtml = (work.images || []).map(function(img) {
-    return '<div class="my-4">' +
-      protectedImg(img.src, img.caption, 'w-full rounded-2xl overflow-hidden') +
-      (img.caption ? '<p class="text-center text-[10px] text-gray-400 mt-1.5">' + img.caption + '</p>' : '') +
-      '</div>';
-  }).join('');
-
   var html = pageHeader("renderCategoryPage('charity')", work.title, work.date);
   html += '<div class="flex-1 overflow-y-auto custom-scroll bg-gray-50 rounded-2xl p-5">';
-    html += (work.content || '') + imagesHtml;
-  html += '</div>';
 
+  html += work.blocks.map(function(block) {
+    if (block.type === 'txt') {
+      return block.html;
+    } else if (block.type === 'img') {
+      return '<div class="my-4">'
+        + protectedImg(block.src, block.caption, 'w-full rounded-2xl overflow-hidden')
+        + (block.caption ? '<p class="text-center text-[10px] text-gray-400 mt-1.5">' + block.caption + '</p>' : '')
+        + '</div>';
+    }
+    return '';
+  }).join('');
+
+  html += '</div>';
   renderPage(html);
 }
 
